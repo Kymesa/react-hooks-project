@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function ProductNew() {
   const { register, handleSubmit } = useForm();
@@ -10,6 +11,13 @@ function ProductNew() {
       `${"https://books-api-services.onrender.com/api/v1/books"}`,
       data
     );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "OK AGREGASTE TU PRODUCTO, EXITO!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     navigate("/");
   };
 
